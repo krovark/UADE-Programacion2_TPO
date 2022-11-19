@@ -5,21 +5,7 @@ import apis.DiccionarioSimpleTDA;
 
 public interface AdministradorDeColas {
 
-	void inicializar(int cantidad);
-
-	// siempre que el TDA esté inicializado
-
-	int acolar(int prioridad);
-
-	// siempre que el TDA esté inicializado
-
-	int desacolar(int puesto);
-
-	// siempre que el TDA esté inicializado
-
-	int cantPuestos();
-
-	// siempre que el TDA esté inicializado
+	
 
 	int primero();
 	
@@ -41,14 +27,45 @@ public interface AdministradorDeColas {
 
 	// siempre que el TDA esté inicializado y cola no vacías
 	
+		void inicializar(int cantidad);
+
+	// siempre que el TDA esté inicializado
+
+	int acolar(int prioridad);
+
+	// siempre que el TDA esté inicializado
+
+	int desacolar(int puesto);
+
+	// siempre que el TDA esté inicializado
+
+	int cantPuestos();
+
+	// siempre que el TDA esté inicializado
+	
 	String ObtenerNomenclatura(int idTurno, int prioridad);
 	
+	ConjuntoTDA Claves();
 	
-	void InicializarDiccionariodePrefijos();// siempre que el diccionario esté inicializado 
-	void AgregarPrefijo(int clave, String valor);// siempre que el diccionario esté inicializado 
-	void EliminarPrefijo(int clave);// siempre que el diccionario esté inicializado 
-	String RecuperarPrefijo(int clave); // siempre que el diccionario esté inicializado 
-	ConjuntoTDA Claves(); // siempre que el diccionario esté inicializado 
+	// siempre que el diccionario esté inicializado
+	
+	void InicializarDiccionariodePrefijos();
+	
+	// siempre que el diccionario esté inicializado
+	
+	void AgregarPrefijo(int clave, String valor);
+	
+	// siempre que el diccionario esté inicializado
+	
+	void EliminarPrefijo(int clave);
+	
+	// siempre que el diccionario esté inicializado
+	
+	String RecuperarPrefijo(int clave);
+	
+	// siempre que el diccionario esté inicializado
+	
+	 
 	
 //
 }

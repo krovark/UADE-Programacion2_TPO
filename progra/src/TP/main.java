@@ -9,27 +9,34 @@ import impl_tp.AdministradorColaTP;
 public class main {
 
 	static int puestos = 9;
-
+	//static int puestos = 16;
+	
+	//CAMBIAR A DISPOSICION PORQUE LA PRIMERA PARTE DICE QUE TENGA 9 puestos pero luego dice en el test que tenga 16 puestos de atención
+	
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 		AdministradorDeColas adminTurnos = new AdministradorColaTP();
 		adminTurnos.inicializar(puestos);
 		cargarNomenclatura(adminTurnos);
-
+		System.out.print("simula la generacion de ticket de la clinica \n");
+		System.out.print("... \n");
 		System.out.print("Generando cola de Tickets.. \n");
 		simularCargarTurnos(adminTurnos);
-		
-		System.out.print("\n\n\nGenerador de Llamados\n");
+		System.out.print("\n");
+		System.out.print("simula la asignacion de ticket al puesto de llamado \n");
+		System.out.print("... \n");
+		System.out.print("\n Generador de Llamados\n");
 		simularAsignarPuesto(adminTurnos);
 
 	}
 
 	//Cargar Nomenclatura
-	public static void cargarNomenclatura(AdministradorDeColas adminTurnos) {
-		adminTurnos.AgregarPrefijo(10, "GUA");
-		adminTurnos.AgregarPrefijo(20, "ENF");
-		adminTurnos.AgregarPrefijo(40, "ODO");
+	public static void cargarNomenclatura(AdministradorDeColas administradorTurnos) {
+		administradorTurnos.AgregarPrefijo(10, "GUA");
+		administradorTurnos.AgregarPrefijo(20, "ENF");
+		administradorTurnos.AgregarPrefijo(40, "ODO");
 	}
 	
 	
@@ -45,9 +52,9 @@ public class main {
 	public static void asignarPuesto(AdministradorDeColas adminTurnos, int puesto) {
 		int prioridad = adminTurnos.prioridad();
 		int idTurno = adminTurnos.desacolar(puesto);
-		String codTurno = adminTurnos.ObtenerNomenclatura(idTurno, prioridad);
+		String codigoTurno = adminTurnos.ObtenerNomenclatura(idTurno, prioridad);
 
-		System.out.println("Ticket: "+codTurno + "\t -> Puesto: " + puesto + "\t-> Hora:\t" + hora());
+		System.out.println("Ticket: "+codigoTurno + "\t -> Puesto: " + puesto + "\t-> Hora:\t" + hora());
 	
 	}
 	
@@ -77,7 +84,7 @@ public class main {
 	
 
 	
-	// Genera la simulacion de puestos
+	// Genera la simulacion de puestos cada 4s
 	public static void simularAsignarPuesto(AdministradorDeColas adminTurnos) {
 
 		while (!adminTurnos.colaVacia()) {
@@ -102,8 +109,8 @@ public class main {
 		return horario;
 	}
 	
-	public static int getRandomNumber(int min, int max) {
-		return (int) ((Math.random() * (max - min)) + min);
+	public static int getRandomNumber(int minimo, int maximo) {
+		return (int) ((Math.random() * (maximo - minimo)) + minimo);
 	}
 
 	//
